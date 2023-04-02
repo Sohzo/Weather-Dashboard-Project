@@ -1,0 +1,9 @@
+.header {
+    background-image: linear-gradient(to left,rgb(62, 14, 233),rgb(101, 101, 230));
+}
+
+.header h1 {
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
