@@ -61,7 +61,6 @@ function getweather(search) {
             displaypic.setAttribute("src","https://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png");
             displayclouds.innerHTML = data.weather[0].description
         });
+    
 }
 
-
-//const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=40.760780&lon=111.891045&appid=cd7053416bdb602f8d342304d55447b9';
