@@ -1,5 +1,10 @@
 
-var displaytemp = document.getElementById("temp")
+var displaytemp = document.getElementById("temp");
+var displayloc = document.getElementById("location");
+var displaydate = document.getElementById("date");
+var displayday = document.getElementById("day");
+var displaypic = document.getElementById("weatherpic");
+var displayclouds = document.getElementById("clouds");
 var search = document.getElementById("searchbar").value;
 var searchbutton = document.getElementById("searchbutton");
 var searchhistory = JSON.parse(localStorage.getItem("Search History") || "[]");
@@ -41,7 +46,20 @@ function getweather(search) {
         })
         .then(function (data) {
             console.log(data);
-            temp.innerHTML = data.main.temp + " &#176F"
+    
+            displaytemp.innerHTML = data.main.temp + " &#176F"
+            displayloc.innerHTML = data.name
+            var date = new Date(data.dt*1000);
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            var dayname = weekdays[date.getDay()];
+            console.log(day);
+            displayday.innerHTML = dayname;
+            displaydate.innerHTML = month + "/" + day + "/" + year;
+            displaypic.setAttribute("src","https://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png");
+            displayclouds.innerHTML = data.weather[0].description
         });
 }
 
