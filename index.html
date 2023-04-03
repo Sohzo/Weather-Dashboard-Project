@@ -23,22 +23,16 @@
                   <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
           
                   <div class="input-group rounded mb-3">
-                    <input type="search" class="form-control rounded" placeholder="City" aria-label="Search"
+                    <input type="search" id="searchbar" class="form-control rounded" placeholder="City" aria-label="Search"
                       aria-describedby="search-addon" />
-                    <a href="#!" type="button">
+                    <button type="button" id="searchbutton">
                       <span class="input-group-text border-0 fw-bold" id="search-addon">
                         Check!
                       </span>
-                    </a>
+                    </button>
                   </div>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                  </ul>
+                <ul class="list-group" id="historylist"></ul>
             </div>
 
             <section class="vh-100 w-50">
@@ -69,7 +63,7 @@
                                 <div class="flex-column">
                                   <i class="fas fa-minus"></i>
                                 </div>
-                                <div class="flex-column border" style="border-radius: 10px; padding: .75rem">
+                                <div class="flex-column">
                                   <p class="small mb-1">Sun</p>
                                   <p class="small mb-0"><strong>-4°C</strong></p>
                                 </div>
@@ -115,5 +109,7 @@
             
             
           </section>
+        <script src="./script.js"></script>
+        
     </body>
 </html>
