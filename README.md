@@ -16,7 +16,7 @@ The screenshot below shows the page after inputting data
 
 # Link to application
 
-
+https://sohzo.github.io/Weather-Dashboard-Project/
 
 # Sources
 
