@@ -7,9 +7,11 @@ This program pulls current and 5-day forecasted weather and displays it to the u
 # Screenshots
 
 The screenshot below shows the landing page
+
 ![Landing page](./images/PROJECT6_LANDINGPAGE.png)
 
 The screenshot below shows the page after inputting data
+
 ![Page with info](./images/PROJECT6_INPUTEDPAGE.png)
 
 # Link to application
