@@ -27,6 +27,9 @@ searchbutton.addEventListener('click', function() {
     addedLi.textContent = searchcontent
     addedLi.className = "list-group-item";
     document.getElementById('historylist').appendChild(addedLi);
+    addedLi.addEventListener('click', function() {
+        getweather(addedLi.textContent);
+    })
 });
 
 for (i=0; i<searchhistory.length; i++) {
@@ -62,5 +65,27 @@ function getweather(search) {
             displayclouds.innerHTML = data.weather[0].description
         });
     
+    
+    var requestLATURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + search + "&appid=" + apiKey
+    fetch(requestLATURL)
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            console.log(data)
+            var lat = data[0].lat
+            var lon = data[0].lon
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey
+            fetch(forecastURL)
+                .then(function (response) {
+                    return response.json()
+                })
+                .then(function (data) {
+                    console.log(data)
+                });
+        });
+    
+        
+        
 }
 
