@@ -15,6 +15,24 @@ var displaydayname2 = document.getElementById("day2name");
 var displaydayname3 = document.getElementById("day3name");
 var displaydayname4 = document.getElementById("day4name");
 var displaydayname5 = document.getElementById("day5name");
+var windspeed = document.getElementById("windspeed");
+var humidity = document.getElementById("humidity");
+var dspeed1 = document.getElementById("day1speed");
+var dspeed2 = document.getElementById("day2speed");
+var dspeed3 = document.getElementById("day3speed");
+var dspeed4 = document.getElementById("day4speed");
+var dspeed5 = document.getElementById("day5speed");
+var dhum1 = document.getElementById("day1humidity");
+var dhum2 = document.getElementById("day2humidity");
+var dhum3 = document.getElementById("day3humidity");
+var dhum4 = document.getElementById("day4humidity");
+var dhum5 = document.getElementById("day5humidity");
+var weatherpic1 = document.getElementById("weatherpic1");
+var weatherpic2 = document.getElementById("weatherpic2");
+var weatherpic3 = document.getElementById("weatherpic3");
+var weatherpic4 = document.getElementById("weatherpic4");
+var weatherpic5 = document.getElementById("weatherpic5");
+
 
 var search = document.getElementById("searchbar").value;
 var searchbutton = document.getElementById("searchbutton");
@@ -74,7 +92,9 @@ function getweather(search) {
             displayday.innerHTML = dayname;
             displaydate.innerHTML = month + "/" + day + "/" + year;
             displaypic.setAttribute("src","https://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png");
-            displayclouds.innerHTML = data.weather[0].description
+            displayclouds.innerHTML = "Weather: " + data.weather[0].description
+            windspeed.innerHTML = "Wind Speed: " + data.wind.speed + " mph"
+            humidity.innerHTML = "Humidity: " + data.main.humidity + "%"
         });
     
     
@@ -95,6 +115,7 @@ function getweather(search) {
                 .then(function (data) {
                     console.log(data)
                     
+                    
                     displayday1.innerHTML = data.list[3].main.temp + " &#176F";
                     displayday2.innerHTML = data.list[11].main.temp + " &#176F";
                     displayday3.innerHTML = data.list[19].main.temp + " &#176F";
@@ -106,6 +127,26 @@ function getweather(search) {
                     displaydayname3.innerHTML = ((new Date(data.list[19].dt*1000)).getMonth() + 1) + "/" + ((new Date(data.list[19].dt*1000)).getDate());
                     displaydayname4.innerHTML = ((new Date(data.list[27].dt*1000)).getMonth() + 1) + "/" + ((new Date(data.list[27].dt*1000)).getDate());
                     displaydayname5.innerHTML = ((new Date(data.list[35].dt*1000)).getMonth() + 1) + "/" + ((new Date(data.list[35].dt*1000)).getDate());
+
+                    dspeed1.innerHTML = data.list[3].wind.speed + " mph";
+                    dspeed2.innerHTML = data.list[11].wind.speed + " mph";
+                    dspeed3.innerHTML = data.list[19].wind.speed + " mph";
+                    dspeed4.innerHTML = data.list[27].wind.speed + " mph";
+                    dspeed5.innerHTML = data.list[35].wind.speed + " mph";
+
+                    dhum1.innerHTML = data.list[3].main.humidity + "%";
+                    dhum2.innerHTML = data.list[11].main.humidity + "%";
+                    dhum3.innerHTML = data.list[19].main.humidity + "%";
+                    dhum4.innerHTML = data.list[27].main.humidity + "%";
+                    dhum5.innerHTML = data.list[35].main.humidity + "%";
+
+                    weatherpic1.setAttribute("src","https://openweathermap.org/img/wn/" + data.list[3].weather[0].icon +"@2x.png");
+                    weatherpic2.setAttribute("src","https://openweathermap.org/img/wn/" + data.list[11].weather[0].icon +"@2x.png");
+                    weatherpic3.setAttribute("src","https://openweathermap.org/img/wn/" + data.list[19].weather[0].icon +"@2x.png");
+                    weatherpic4.setAttribute("src","https://openweathermap.org/img/wn/" + data.list[27].weather[0].icon +"@2x.png");
+                    weatherpic5.setAttribute("src","https://openweathermap.org/img/wn/" + data.list[35].weather[0].icon +"@2x.png");
+
+
                 });
         });
     
